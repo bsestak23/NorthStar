@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NorthStar Appliance Install LLC | Twin Cities Metro</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Montserrat', Arial, sans-serif; color: #1A2E5A; background: #fff; }
+
+  /* ── VARIABLES ── */
+  :root {
+    --navy: #1A2E5A;
+    --navy-deep: #223A6E;
+    --gold: #C9A227;
+    --gold-dark: #A07E1A;
+    --ice: #F5F7FA;
+    --slate: #6B7280;
+    --white: #ffffff;
+    --shadow: 0 4px 24px rgba(26,46,90,0.10);
+    --shadow-sm: 0 2px 10px rgba(26,46,90,0.08);
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky; top: 0; z-index: 1000;
+    background: var(--navy);
+    border-bottom: 3px solid var(--gold);
+    padding: 0 40px;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 72px;
+  }
+  .nav-logo {
+    display: flex; align-items: center; gap: 12px; text-decoration: none;
+  }
+  .nav-logo-text {
+    display: flex; flex-direction: column; line-height: 1.1;
+  }
+  .nav-logo-name {
+    font-size: 18px; font-weight: 900; letter-spacing: 0.1em;
+    color: var(--white);
+  }
+  .nav-logo-sub {
+    font-size: 8px; font-weight: 600; letter-spacing: 0.25em;
+    color: rgba(255,255,255,0.55); text-transform: uppercase;
+  }
+  .nav-links {
+    display: flex; align-items: center; gap: 32px; list-style: none;
+  }
+  .nav-links a {
+    color: rgba(255,255,255,0.8); text-decoration: none;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta {
+    background: var(--gold); color: var(--navy) !important;
+    padding: 10px 22px; border-radius: 4px;
+    font-weight: 700 !important; letter-spacing: 0.08em !important;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: #d4ab2f !important; color: var(--navy) !important; }
+  .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+  .nav-hamburger span { width: 24px; height: 2px; background: var(--white); border-radius: 2px; }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--navy);
+    padding: 90px 40px 80px;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: "";
+    position: absolute; top: -80px; right: -120px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(201,162,39,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .hero-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(201,162,39,0.12); border: 1px solid rgba(201,162,39,0.35);
+    color: var(--gold); font-size: 10px; font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    padding: 6px 14px; border-radius: 20px; margin-bottom: 24px;
+  }
+  .hero-badge::before { content: "★"; }
+  .hero h1 {
+    font-size: 46px; font-weight: 900; color: var(--white);
+    line-height: 1.1; letter-spacing: 0.03em; margin-bottom: 18px;
+  }
+  .hero h1 span { color: var(--gold); }
+  .hero-sub {
+    font-size: 16px; color: rgba(255,255,255,0.65);
+    line-height: 1.7; margin-bottom: 36px; font-weight: 400;
+  }
+  .hero-buttons { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--gold); color: var(--navy);
+    padding: 14px 28px; border-radius: 4px;
+    font-size: 12px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; text-decoration: none;
+    display: inline-flex; align-items: center; gap: 8px;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-primary:hover { background: #d4ab2f; transform: translateY(-1px); }
+  .btn-outline {
+    background: transparent; color: var(--white);
+    padding: 14px 28px; border-radius: 4px; border: 1.5px solid rgba(255,255,255,0.35);
+    font-size: 12px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; text-decoration: none;
+    display: inline-flex; align-items: center; gap: 8px;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+  .hero-stats {
+    display: flex; gap: 32px; margin-top: 44px; padding-top: 36px;
+    border-top: 1px solid rgba(255,255,255,0.12);
+  }
+  .hero-stat .num {
+    font-size: 30px; font-weight: 900; color: var(--gold); letter-spacing: -0.02em;
+  }
+  .hero-stat .label {
+    font-size: 10px; color: rgba(255,255,255,0.5); font-weight: 600;
+    letter-spacing: 0.15em; text-transform: uppercase; margin-top: 2px;
+  }
+  /* Hero visual panel */
+  .hero-panel {
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
+    border-top: 3px solid var(--gold); border-radius: 8px;
+    padding: 32px;
+  }
+  .hero-panel-title {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.25em;
+    color: var(--gold); text-transform: uppercase; margin-bottom: 20px;
+  }
+  .hero-checklist { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+  .hero-checklist li {
+    display: flex; align-items: flex-start; gap: 12px;
+    color: rgba(255,255,255,0.8); font-size: 14px; font-weight: 500;
+    line-height: 1.5;
+  }
+  .hero-checklist li::before {
+    content: "✓"; color: var(--gold); font-weight: 700; font-size: 14px;
+    flex-shrink: 0; margin-top: 1px;
+  }
+  .hero-area {
+    margin-top: 24px; padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .hero-area-icon {
+    width: 36px; height: 36px; background: rgba(201,162,39,0.15);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: 16px; flex-shrink: 0;
+  }
+  .hero-area-text .top {
+    font-size: 11px; font-weight: 700; color: var(--white); letter-spacing: 0.05em;
+  }
+  .hero-area-text .bot {
+    font-size: 10px; color: rgba(255,255,255,0.45); font-weight: 500; margin-top: 2px;
+  }
+
+  /* ── TRUST BAR ── */
+  .trust-bar {
+    background: var(--ice); border-bottom: 1px solid #DDE3ED;
+    padding: 20px 40px;
+  }
+  .trust-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: center;
+    gap: 40px; flex-wrap: wrap;
+  }
+  .trust-item {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 11px; font-weight: 700; color: var(--navy);
+    letter-spacing: 0.08em; text-transform: uppercase;
+  }
+  .trust-item .icon {
+    font-size: 18px;
+  }
+  .trust-divider { width: 1px; height: 28px; background: #DDE3ED; }
+
+  /* ── SECTION SHARED ── */
+  section { padding: 80px 40px; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-eyebrow {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.3em;
+    color: var(--gold-dark); text-transform: uppercase; margin-bottom: 10px;
+  }
+  .section-title {
+    font-size: 32px; font-weight: 900; color: var(--navy);
+    letter-spacing: 0.03em; margin-bottom: 16px; line-height: 1.15;
+  }
+  .section-sub {
+    font-size: 15px; color: var(--slate); font-weight: 400;
+    max-width: 560px; line-height: 1.7;
+  }
+  .section-header { margin-bottom: 48px; }
+
+  /* ── SERVICES ── */
+  #services { background: var(--white); }
+  .services-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+  }
+  .service-card {
+    background: var(--ice); border-radius: 8px;
+    border: 1px solid #DDE3ED; border-top: 3px solid transparent;
+    padding: 28px 24px;
+    transition: border-top-color 0.2s, box-shadow 0.2s, transform 0.15s;
+  }
+  .service-card:hover {
+    border-top-color: var(--gold); box-shadow: var(--shadow);
+    transform: translateY(-2px);
+  }
+  .service-icon {
+    font-size: 28px; margin-bottom: 14px;
+  }
+  .service-name {
+    font-size: 15px; font-weight: 700; color: var(--navy);
+    letter-spacing: 0.04em; margin-bottom: 8px;
+  }
+  .service-desc {
+    font-size: 12px; color: var(--slate); line-height: 1.65; font-weight: 400;
+  }
+  .service-tag {
+    display: inline-block; margin-top: 14px;
+    background: rgba(26,46,90,0.07); color: var(--navy);
+    font-size: 9px; font-weight: 700; letter-spacing: 0.15em;
+    text-transform: uppercase; padding: 4px 10px; border-radius: 3px;
+  }
+  .service-tag.elite {
+    background: rgba(201,162,39,0.12); color: var(--gold-dark);
+  }
+  /* Add-ons row */
+  .addons-row {
+    margin-top: 40px; padding: 28px 32px;
+    background: var(--navy); border-radius: 8px;
+    display: flex; align-items: center; gap: 24px; flex-wrap: wrap;
+  }
+  .addons-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.2em;
+    color: var(--gold); text-transform: uppercase; flex-shrink: 0;
+  }
+  .addons-divider { width: 1px; height: 30px; background: rgba(255,255,255,0.15); flex-shrink: 0; }
+  .addons-tags { display: flex; flex-wrap: wrap; gap: 10px; }
+  .addon-tag {
+    background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.75);
+    font-size: 11px; font-weight: 600; padding: 6px 14px; border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.1); letter-spacing: 0.05em;
+  }
+
+  /* ── WHY NORTHSTAR ── */
+  #why { background: var(--ice); }
+  .why-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;
+  }
+  .why-list { display: flex; flex-direction: column; gap: 24px; }
+  .why-item { display: flex; gap: 18px; align-items: flex-start; }
+  .why-num {
+    width: 40px; height: 40px; background: var(--navy); color: var(--gold);
+    font-size: 14px; font-weight: 900; border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .why-item-content .title {
+    font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 4px;
+  }
+  .why-item-content .desc {
+    font-size: 12px; color: var(--slate); line-height: 1.65; font-weight: 400;
+  }
+  /* Testimonials panel */
+  .testimonials { display: flex; flex-direction: column; gap: 20px; }
+  .testimonial {
+    background: var(--white); border-radius: 8px; padding: 24px;
+    box-shadow: var(--shadow-sm); border-left: 3px solid var(--gold);
+  }
+  .testimonial-stars { color: var(--gold); font-size: 13px; margin-bottom: 10px; }
+  .testimonial-text {
+    font-size: 13px; color: var(--navy); line-height: 1.7;
+    font-style: italic; font-weight: 400; margin-bottom: 12px;
+  }
+  .testimonial-author {
+    font-size: 11px; font-weight: 700; color: var(--slate); letter-spacing: 0.08em;
+  }
+
+  /* ── PROCESS ── */
+  #process { background: var(--white); }
+  .process-steps {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+    position: relative;
+  }
+  .process-steps::after {
+    content: ""; position: absolute;
+    top: 36px; left: 12.5%; width: 75%; height: 2px;
+    background: linear-gradient(to right, var(--gold), var(--navy));
+    z-index: 0;
+  }
+  .process-step { text-align: center; padding: 0 16px; position: relative; z-index: 1; }
+  .step-circle {
+    width: 72px; height: 72px; background: var(--navy);
+    border: 3px solid var(--gold); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 22px; color: var(--gold);
+    font-weight: 900;
+  }
+  .step-title {
+    font-size: 13px; font-weight: 700; color: var(--navy);
+    letter-spacing: 0.05em; margin-bottom: 8px;
+  }
+  .step-desc {
+    font-size: 11px; color: var(--slate); line-height: 1.6;
+    font-weight: 400;
+  }
+
+  /* ── SERVICE AREA ── */
+  #area { background: var(--navy); padding: 60px 40px; }
+  .area-inner {
+    max-width: 1100px; margin: 0 auto;
+    text-align: center;
+  }
+  .area-inner .section-eyebrow { color: rgba(201,162,39,0.8); }
+  .area-inner .section-title { color: var(--white); }
+  .area-inner .section-sub { color: rgba(255,255,255,0.55); margin: 0 auto 40px; }
+  .area-grid {
+    display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;
+    margin-bottom: 40px;
+  }
+  .area-tag {
+    background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.75);
+    border: 1px solid rgba(255,255,255,0.12); border-radius: 20px;
+    font-size: 12px; font-weight: 600; padding: 8px 18px; letter-spacing: 0.05em;
+  }
+
+  /* ── BOOKING FORM ── */
+  #book { background: var(--ice); }
+  .book-grid {
+    display: grid; grid-template-columns: 1fr 1.5fr; gap: 60px; align-items: start;
+  }
+  .book-aside {
+    background: var(--navy); border-radius: 8px; padding: 36px 32px;
+    border-top: 4px solid var(--gold);
+  }
+  .book-aside-title {
+    font-size: 14px; font-weight: 700; color: var(--white);
+    margin-bottom: 20px; letter-spacing: 0.06em;
+  }
+  .book-aside-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+  .book-aside-list li {
+    display: flex; align-items: flex-start; gap: 10px;
+    font-size: 12px; color: rgba(255,255,255,0.7); line-height: 1.5; font-weight: 500;
+  }
+  .book-aside-list li::before { content: "→"; color: var(--gold); flex-shrink: 0; }
+  .book-aside-contact {
+    margin-top: 30px; padding-top: 24px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+  .book-aside-contact .label {
+    font-size: 9px; font-weight: 700; letter-spacing: 0.2em;
+    color: var(--gold); text-transform: uppercase; margin-bottom: 10px;
+  }
+  .book-aside-contact .phone {
+    font-size: 22px; font-weight: 900; color: var(--white); letter-spacing: 0.04em;
+  }
+  .book-aside-contact .email {
+    font-size: 12px; color: rgba(255,255,255,0.55); margin-top: 4px;
+  }
+  /* Form styles */
+  .booking-form { background: var(--white); border-radius: 8px; padding: 40px; box-shadow: var(--shadow-sm); }
+  .form-title {
+    font-size: 20px; font-weight: 700; color: var(--navy);
+    margin-bottom: 6px; letter-spacing: 0.04em;
+  }
+  .form-subtitle {
+    font-size: 12px; color: var(--slate); margin-bottom: 28px; font-weight: 400;
+  }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-group { margin-bottom: 18px; }
+  .form-group label {
+    display: block; font-size: 10px; font-weight: 700;
+    letter-spacing: 0.15em; color: var(--navy); text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%; padding: 11px 14px;
+    border: 1.5px solid #DDE3ED; border-radius: 4px;
+    font-family: 'Montserrat', sans-serif; font-size: 13px; color: var(--navy);
+    background: var(--ice);
+    transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201,162,39,0.12);
+  }
+  .form-group textarea { resize: vertical; min-height: 90px; }
+  .form-group select { appearance: none; cursor: pointer; }
+  .form-submit {
+    width: 100%; background: var(--gold); color: var(--navy);
+    border: none; border-radius: 4px; padding: 14px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    margin-top: 8px;
+  }
+  .form-submit:hover { background: #d4ab2f; transform: translateY(-1px); }
+  .form-note {
+    font-size: 10px; color: var(--slate); text-align: center;
+    margin-top: 12px; line-height: 1.6;
+  }
+  /* Success message */
+  .form-success {
+    display: none; text-align: center; padding: 32px 20px;
+  }
+  .form-success .success-icon {
+    font-size: 48px; margin-bottom: 16px;
+  }
+  .form-success h3 { font-size: 20px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+  .form-success p { font-size: 13px; color: var(--slate); line-height: 1.6; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #111D38; color: rgba(255,255,255,0.45);
+    padding: 48px 40px 28px;
+  }
+  .footer-inner {
+    max-width: 1100px; margin: 0 auto;
+  }
+  .footer-top {
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px;
+    padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.08);
+    margin-bottom: 24px;
+  }
+  .footer-brand-name {
+    font-size: 16px; font-weight: 900; color: var(--white);
+    letter-spacing: 0.1em; margin: 12px 0 8px;
+  }
+  .footer-tagline {
+    font-size: 10px; color: var(--gold); letter-spacing: 0.15em;
+    text-transform: uppercase; margin-bottom: 14px;
+  }
+  .footer-bio {
+    font-size: 11px; color: rgba(255,255,255,0.4); line-height: 1.7; font-weight: 400;
+  }
+  .footer-col-title {
+    font-size: 9px; font-weight: 700; letter-spacing: 0.25em;
+    color: var(--gold); text-transform: uppercase; margin-bottom: 16px;
+  }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-col ul li a {
+    font-size: 11px; color: rgba(255,255,255,0.45); text-decoration: none;
+    font-weight: 500; transition: color 0.2s;
+  }
+  .footer-col ul li a:hover { color: var(--gold); }
+  .footer-col .contact-line {
+    font-size: 11px; color: rgba(255,255,255,0.45); margin-bottom: 8px; font-weight: 500;
+  }
+  .footer-bottom {
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 10px; flex-wrap: wrap; gap: 10px;
+  }
+  .footer-legal a { color: rgba(255,255,255,0.3); text-decoration: none; margin-left: 16px; }
+  .footer-legal a:hover { color: var(--gold); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1024px) {
+    .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+    .hero-panel { display: none; }
+    .services-grid { grid-template-columns: 1fr 1fr; }
+    .footer-top { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 768px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+    section { padding: 56px 20px; }
+    .hero { padding: 60px 20px; }
+    .hero h1 { font-size: 32px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .why-grid { grid-template-columns: 1fr; }
+    .process-steps { grid-template-columns: 1fr 1fr; }
+    .process-steps::after { display: none; }
+    .book-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr; gap: 28px; }
+    .trust-inner { gap: 20px; }
+    .trust-divider { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════
+     NAVIGATION
+════════════════════════════════════════ -->
+<nav>
+  <a href="#" class="nav-logo">
+    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="47" fill="#223A6E"/>
+      <circle cx="50" cy="50" r="47" fill="none" stroke="#C9A227" stroke-width="2"/>
+      <path d="M50,6L59.5,43.5L82,50L59.5,56.5L50,94L40.5,56.5L18,50L40.5,43.5Z" fill="#C9A227"/>
+      <circle cx="50" cy="50" r="7" fill="#223A6E"/>
+    </svg>
+    <div class="nav-logo-text">
+      <span class="nav-logo-name">NORTHSTAR</span>
+      <span class="nav-logo-sub">Appliance Install LLC</span>
+    </div>
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#why">Why NorthStar</a></li>
+    <li><a href="#process">Our Process</a></li>
+    <li><a href="#area">Service Area</a></li>
+    <li><a href="#book" class="nav-cta">Book an Install</a></li>
+  </ul>
+
+  <div class="nav-hamburger" onclick="toggleMenu(this)">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ════════════════════════════════════════
+     HERO
+════════════════════════════════════════ -->
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">Twin Cities Metro · Premium Appliance Installation</div>
+      <h1>Precision Installs.<br><span>Professional Results.</span></h1>
+      <p class="hero-sub">
+        NorthStar Appliance Install LLC is the Twin Cities' trusted choice for
+        residential appliance installation. White-glove service. Done right the first time.
+      </p>
+      <div class="hero-buttons">
+        <a href="#book" class="btn-primary">Book an Appointment →</a>
+        <a href="#services" class="btn-outline">View Services</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="num">500+</div>
+          <div class="label">Installs Completed</div>
+        </div>
+        <div class="hero-stat">
+          <div class="num">5★</div>
+          <div class="label">Customer Rating</div>
+        </div>
+        <div class="hero-stat">
+          <div class="num">30-Day</div>
+          <div class="label">Labor Warranty</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-panel">
+      <div class="hero-panel-title">What You Can Expect</div>
+      <ul class="hero-checklist">
+        <li>Licensed, insured professional installers at every job</li>
+        <li>Before &amp; after photo documentation for every install</li>
+        <li>Customer sign-off before we leave — your satisfaction is guaranteed</li>
+        <li>Gas, electric, and plumbing connections handled correctly</li>
+        <li>Premium brand experience: Sub-Zero, Wolf, Thermador &amp; more</li>
+        <li>On-time arrival windows with real-time updates</li>
+      </ul>
+      <div class="hero-area">
+        <div class="hero-area-icon">📍</div>
+        <div class="hero-area-text">
+          <div class="top">Serving the Twin Cities Metro</div>
+          <div class="bot">Minneapolis · St. Paul · Suburbs &amp; surrounding areas</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     TRUST BAR
+════════════════════════════════════════ -->
+<div class="trust-bar">
+  <div class="trust-inner">
+    <div class="trust-item"><span class="icon">🛡️</span> Fully Insured &amp; Licensed</div>
+    <div class="trust-divider"></div>
+    <div class="trust-item"><span class="icon">⭐</span> 5-Star Rated Service</div>
+    <div class="trust-divider"></div>
+    <div class="trust-item"><span class="icon">📋</span> 30-Day Labor Warranty</div>
+    <div class="trust-divider"></div>
+    <div class="trust-item"><span class="icon">📸</span> Photo-Documented Every Job</div>
+    <div class="trust-divider"></div>
+    <div class="trust-item"><span class="icon">🔧</span> Gas Line Certified</div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     SERVICES
+════════════════════════════════════════ -->
+<section id="services">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-eyebrow">What We Install</div>
+      <h2 class="section-title">Appliance Installation Services</h2>
+      <p class="section-sub">
+        From a standard swap to a full built-in integration, we handle every type of
+        residential appliance installation in the Twin Cities with the same White Glove standard.
+      </p>
+    </div>
+
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-icon">🧊</div>
+        <div class="service-name">Refrigerator Installation</div>
+        <p class="service-desc">
+          Freestanding, counter-depth, and fully built-in refrigerators. Includes ice maker
+          water line connections, panel alignment, and door reversal if needed.
+        </p>
+        <span class="service-tag">Standard</span>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🍽️</div>
+        <div class="service-name">Dishwasher Installation</div>
+        <p class="service-desc">
+          Full dishwasher swap or new installation including water supply, drain line,
+          electrical connection, and door panel fitting on panel-ready models.
+        </p>
+        <span class="service-tag">Standard</span>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🔥</div>
+        <div class="service-name">Range &amp; Oven Installation</div>
+        <p class="service-desc">
+          Gas and electric freestanding ranges, slide-in ranges, and dual-fuel models.
+          Includes gas line connection, anti-tip bracket installation, and testing.
+        </p>
+        <span class="service-tag elite">NorthStar Elite</span>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">👕</div>
+        <div class="service-name">Washer &amp; Dryer Installation</div>
+        <p class="service-desc">
+          Top-load, front-load, and stacked laundry units. Full hookup including
+          water supply, drain, power, and venting for gas dryers.
+        </p>
+        <span class="service-tag">Standard</span>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">⬆️</div>
+        <div class="service-name">Microwave Installation</div>
+        <p class="service-desc">
+          Over-the-range and built-in microwave installation. Includes mounting,
+          electrical connection, venting setup, and cabinetry integration.
+        </p>
+        <span class="service-tag">Standard</span>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🍳</div>
+        <div class="service-name">Cooktop &amp; Wall Oven</div>
+        <p class="service-desc">
+          Gas and electric cooktops with countertop cutout prep and connection.
+          Single and double wall ovens with electrical and cabinetry fitting.
+        </p>
+        <span class="service-tag elite">NorthStar Elite</span>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🚰</div>
+        <div class="service-name">Garbage Disposal</div>
+        <p class="service-desc">
+          New installation and replacement of garbage disposals including
+          plumbing connections, electrical hookup, and dishwasher drain integration.
+        </p>
+        <span class="service-tag">Standard</span>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">💎</div>
+        <div class="service-name">Luxury &amp; Built-In Appliances</div>
+        <p class="service-desc">
+          Specialists in Sub-Zero, Wolf, Thermador, Miele, and Bosch. Built-in
+          refrigerators, professional ranges, and full kitchen suite installations.
+        </p>
+        <span class="service-tag elite">NorthStar Elite</span>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🏠</div>
+        <div class="service-name">New Construction &amp; Multi-Unit</div>
+        <p class="service-desc">
+          Property managers and builders trust NorthStar for multi-unit appliance
+          installation. Volume scheduling and consistent quality across every unit.
+        </p>
+        <span class="service-tag elite">NorthStar Elite</span>
+      </div>
+
+    </div>
+
+    <div class="addons-row">
+      <div class="addons-label">Add-On Services</div>
+      <div class="addons-divider"></div>
+      <div class="addons-tags">
+        <span class="addon-tag">🚛 Haul-Away &amp; Disposal</span>
+        <span class="addon-tag">💧 Water Line Installation</span>
+        <span class="addon-tag">🔧 Gas Line Connection</span>
+        <span class="addon-tag">💨 Dryer Venting &amp; Duct Work</span>
+        <span class="addon-tag">🛡️ 90-Day Extended Warranty</span>
+        <span class="addon-tag">✂️ Trim &amp; Stack Kit Installation</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     WHY NORTHSTAR
+════════════════════════════════════════ -->
+<section id="why">
+  <div class="section-inner">
+    <div class="why-grid">
+
+      <div>
+        <div class="section-eyebrow">Why Choose Us</div>
+        <h2 class="section-title">The NorthStar Difference</h2>
+        <p class="section-sub" style="margin-bottom:36px;">
+          We built NorthStar around one standard: do it right, every time.
+          That means licensed installers, documented work, and a warranty you can rely on.
+        </p>
+        <div class="why-list">
+          <div class="why-item">
+            <div class="why-num">01</div>
+            <div class="why-item-content">
+              <div class="title">Licensed &amp; Insured Professionals</div>
+              <div class="desc">Every installer is background-checked, carries proper insurance,
+              and is trained to Minnesota code. No handyman shortcuts.</div>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-num">02</div>
+            <div class="why-item-content">
+              <div class="title">Photo Documentation on Every Job</div>
+              <div class="desc">We photograph before and after every installation for quality
+              assurance and your warranty record. Accountability built in.</div>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-num">03</div>
+            <div class="why-item-content">
+              <div class="title">Gas Fitter Certified</div>
+              <div class="desc">Gas range, cooktop, and dryer connections require real credentials.
+              Our installers hold Minnesota Gas Fitter certifications — we don't guess with gas.</div>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-num">04</div>
+            <div class="why-item-content">
+              <div class="title">30-Day Labor Warranty Standard</div>
+              <div class="desc">Every installation is backed by a 30-day workmanship warranty.
+              Optional 90-day extended coverage available at booking.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonials">
+        <div class="testimonial">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"NorthStar installed our Wolf range and coordinated the gas
+          line perfectly. Everything was done cleanly, on time, and they walked us through the
+          whole setup. Absolutely the best service I've seen in a home."</p>
+          <div class="testimonial-author">— Sarah K., Minneapolis</div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"We manage 12 rental units and NorthStar handles all our
+          appliance replacements. They show up, get it done right, and send us documentation
+          every time. It's one less thing I have to worry about."</p>
+          <div class="testimonial-author">— Property Manager, St. Paul</div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"Very professional. The technician knew exactly what he was
+          doing with our built-in refrigerator. No drama, no damage, and the kitchen looks
+          exactly how we wanted."</p>
+          <div class="testimonial-author">— Michael T., Edina</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     PROCESS
+════════════════════════════════════════ -->
+<section id="process">
+  <div class="section-inner">
+    <div class="section-header" style="text-align:center;">
+      <div class="section-eyebrow">How It Works</div>
+      <h2 class="section-title">From Booking to Done Right</h2>
+      <p class="section-sub" style="margin:0 auto;">
+        Our process is built for homeowners and property managers who want no surprises —
+        just a professional install, on time and on spec.
+      </p>
+    </div>
+
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="step-circle">1</div>
+        <div class="step-title">Request an Appointment</div>
+        <p class="step-desc">Fill out our booking form or call us directly.
+        Tell us what appliance, what type of install, and your preferred timing.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-circle">2</div>
+        <div class="step-title">Confirm &amp; Schedule</div>
+        <p class="step-desc">We confirm your appointment window, review any
+        site requirements, and make sure everything is ready for install day.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-circle">3</div>
+        <div class="step-title">White-Glove Installation</div>
+        <p class="step-desc">Our installer arrives on time, completes the job
+        to spec, photos documented. You're walked through everything before sign-off.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-circle">4</div>
+        <div class="step-title">Verified &amp; Warranted</div>
+        <p class="step-desc">Customer sign-off completed. Your 30-day labor
+        warranty starts today. We're here if anything comes up.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     SERVICE AREA
+════════════════════════════════════════ -->
+<section id="area">
+  <div class="area-inner">
+    <div class="section-eyebrow">Where We Work</div>
+    <h2 class="section-title" style="color:#fff;">Serving the Twin Cities Metro</h2>
+    <p class="section-sub">
+      NorthStar serves homeowners, property managers, and builders across the
+      Greater Minneapolis–Saint Paul metropolitan area.
+    </p>
+    <div class="area-grid">
+      <span class="area-tag">Minneapolis</span>
+      <span class="area-tag">Saint Paul</span>
+      <span class="area-tag">Edina</span>
+      <span class="area-tag">Bloomington</span>
+      <span class="area-tag">Plymouth</span>
+      <span class="area-tag">Eden Prairie</span>
+      <span class="area-tag">Minnetonka</span>
+      <span class="area-tag">Maple Grove</span>
+      <span class="area-tag">Burnsville</span>
+      <span class="area-tag">Eagan</span>
+      <span class="area-tag">Woodbury</span>
+      <span class="area-tag">Roseville</span>
+      <span class="area-tag">Lakeville</span>
+      <span class="area-tag">Apple Valley</span>
+      <span class="area-tag">Richfield</span>
+      <span class="area-tag">+ Surrounding Suburbs</span>
+    </div>
+    <a href="#book" class="btn-primary" style="display:inline-flex;">Schedule Your Install →</a>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     BOOKING FORM
+════════════════════════════════════════ -->
+<section id="book">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-eyebrow">Get Started</div>
+      <h2 class="section-title">Book an Appointment</h2>
+      <p class="section-sub">
+        Fill out the form below and we'll confirm your appointment within one business day.
+        For urgent scheduling, call us directly.
+      </p>
+    </div>
+
+    <div class="book-grid">
+
+      <div class="book-aside">
+        <div class="book-aside-title">Before You Book</div>
+        <ul class="book-aside-list">
+          <li>Have your appliance on-site, unboxed, and accessible at the scheduled time</li>
+          <li>Ensure utilities (water, gas, electric) are accessible and working</li>
+          <li>Clear adequate space around the installation area</li>
+          <li>A responsible adult (18+) must be present for the duration</li>
+          <li>If a gas permit is required, obtain it prior to your appointment</li>
+        </ul>
+        <div class="book-aside-contact">
+          <div class="label">Prefer to Call?</div>
+          <div class="phone">(612) 555-0190</div>
+          <div class="email">hello@northstarinstall.com</div>
+        </div>
+      </div>
+
+      <div class="booking-form">
+        <div class="form-title">Request an Appointment</div>
+        <div class="form-subtitle">We'll confirm your time within 1 business day.</div>
+
+        <form id="bookingForm" onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName">First Name</label>
+              <input type="text" id="firstName" placeholder="Jane" required>
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name</label>
+              <input type="text" id="lastName" placeholder="Smith" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" placeholder="(612) 555-0100" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" placeholder="jane@email.com" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="address">Service Address</label>
+            <input type="text" id="address" placeholder="123 Main St, Minneapolis, MN 55401" required>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="service">Service Type</label>
+              <select id="service" required>
+                <option value="" disabled selected>Select an appliance...</option>
+                <option>Refrigerator Installation</option>
+                <option>Dishwasher Installation</option>
+                <option>Gas Range / Oven</option>
+                <option>Electric Range / Oven</option>
+                <option>Washer Installation</option>
+                <option>Dryer Installation</option>
+                <option>Washer + Dryer (Both)</option>
+                <option>Microwave (Over-the-Range)</option>
+                <option>Garbage Disposal</option>
+                <option>Cooktop Installation</option>
+                <option>Wall Oven Installation</option>
+                <option>Built-In / Luxury Appliance</option>
+                <option>Multiple Appliances</option>
+                <option>Other / Not Sure</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="tier">Service Tier</label>
+              <select id="tier">
+                <option value="" disabled selected>Select tier...</option>
+                <option>Standard Install</option>
+                <option>NorthStar Elite (complex/built-in/gas)</option>
+                <option>Not sure — need guidance</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="date">Preferred Date</label>
+              <input type="date" id="date">
+            </div>
+            <div class="form-group">
+              <label for="time">Preferred Time</label>
+              <select id="time">
+                <option value="" disabled selected>Select window...</option>
+                <option>Morning (8 AM – 12 PM)</option>
+                <option>Afternoon (12 PM – 4 PM)</option>
+                <option>Late Afternoon (4 PM – 6 PM)</option>
+                <option>Flexible</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="addons">Add-On Services (Optional)</label>
+            <select id="addons">
+              <option value="">None needed</option>
+              <option>Haul-Away &amp; Disposal of Old Appliance</option>
+              <option>Water Line Installation</option>
+              <option>Gas Line Connection</option>
+              <option>Dryer Venting / Duct Work</option>
+              <option>90-Day Extended Warranty</option>
+              <option>Multiple Add-Ons — Will Discuss at Booking</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="notes">Additional Notes</label>
+            <textarea id="notes" placeholder="Tell us anything helpful — appliance brand, model, unusual access, existing utility concerns, etc."></textarea>
+          </div>
+
+          <button type="submit" class="form-submit">Request My Appointment →</button>
+          <p class="form-note">
+            By submitting this form, you agree to our
+            <a href="#" style="color:var(--gold-dark)">Service Agreement</a> terms.
+            A $75 trip fee applies if installation cannot proceed at your scheduled time.
+          </p>
+        </form>
+
+        <div class="form-success" id="formSuccess">
+          <div class="success-icon">⭐</div>
+          <h3>Request Received!</h3>
+          <p>Thank you — a NorthStar team member will confirm your appointment within one business day.
+          If you have an urgent need, call us at <strong>(612) 555-0190</strong>.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+
+      <div>
+        <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="47" fill="#223A6E"/>
+          <path d="M50,6L59.5,43.5L82,50L59.5,56.5L50,94L40.5,56.5L18,50L40.5,43.5Z" fill="#C9A227"/>
+          <circle cx="50" cy="50" r="7" fill="#223A6E"/>
+        </svg>
+        <div class="footer-brand-name">NORTHSTAR APPLIANCE INSTALL LLC</div>
+        <div class="footer-tagline">Precision Installs. Professional Results.</div>
+        <p class="footer-bio">
+          The Twin Cities Metro's premium residential appliance installation company.
+          Licensed, insured, and committed to White Glove quality on every job.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-col-title">Services</div>
+        <ul>
+          <li><a href="#services">Refrigerator</a></li>
+          <li><a href="#services">Dishwasher</a></li>
+          <li><a href="#services">Range &amp; Oven</a></li>
+          <li><a href="#services">Washer &amp; Dryer</a></li>
+          <li><a href="#services">Cooktop &amp; Wall Oven</a></li>
+          <li><a href="#services">Luxury Appliances</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-col-title">Company</div>
+        <ul>
+          <li><a href="#why">Why NorthStar</a></li>
+          <li><a href="#process">Our Process</a></li>
+          <li><a href="#area">Service Area</a></li>
+          <li><a href="#book">Book an Install</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-col-title">Contact</div>
+        <div class="contact-line">📞 (612) 555-0190</div>
+        <div class="contact-line">✉️ hello@northstarinstall.com</div>
+        <div class="contact-line">📍 Twin Cities Metro, MN</div>
+        <div style="margin-top:16px;">
+          <a href="#book" style="font-size:11px;color:#C9A227;text-decoration:none;font-weight:700;letter-spacing:0.08em;">
+            Book an Appointment →
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <div>© 2025 NorthStar Appliance Install LLC · Twin Cities Metro, MN · All rights reserved.</div>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Service Agreement</a>
+        <a href="#">Warranty Terms</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function handleSubmit(e) {
+    e.preventDefault();
+    document.getElementById('bookingForm').style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+    document.getElementById('formSuccess').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  function toggleMenu(el) {
+    const links = document.querySelector('.nav-links');
+    const isOpen = links.style.display === 'flex';
+    links.style.display = isOpen ? 'none' : 'flex';
+    links.style.flexDirection = 'column';
+    links.style.position = 'absolute';
+    links.style.top = '72px';
+    links.style.left = '0';
+    links.style.right = '0';
+    links.style.background = '#1A2E5A';
+    links.style.padding = '20px 40px';
+    links.style.borderBottom = '3px solid #C9A227';
+    links.style.gap = '16px';
+  }
+
+  // Set min date to today for booking form
+  const dateInput = document.getElementById('date');
+  if (dateInput) {
+    const today = new Date().toISOString().split('T')[0];
+    dateInput.setAttribute('min', today);
+  }
+</script>
+
+</body>
+</html>
