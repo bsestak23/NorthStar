@@ -560,20 +560,6 @@
         <a href="#book" class="btn-primary">Book an Appointment →</a>
         <a href="#services" class="btn-outline">View Services</a>
       </div>
-      <div class="hero-stats">
-        <div class="hero-stat">
-          <div class="num">500+</div>
-          <div class="label">Installs Completed</div>
-        </div>
-        <div class="hero-stat">
-          <div class="num">5★</div>
-          <div class="label">Customer Rating</div>
-        </div>
-        <div class="hero-stat">
-          <div class="num">30-Day</div>
-          <div class="label">Labor Warranty</div>
-        </div>
-      </div>
     </div>
 
     <div class="hero-panel">
@@ -604,9 +590,7 @@
   <div class="trust-inner">
     <div class="trust-item"><span class="icon">🛡️</span> Fully Insured &amp; Licensed</div>
     <div class="trust-divider"></div>
-    <div class="trust-item"><span class="icon">⭐</span> 5-Star Rated Service</div>
-    <div class="trust-divider"></div>
-    <div class="trust-item"><span class="icon">📋</span> 30-Day Labor Warranty</div>
+<div class="trust-item"><span class="icon">📋</span> 30-Day Labor Warranty</div>
     <div class="trust-divider"></div>
     <div class="trust-item"><span class="icon">📸</span> Photo-Documented Every Job</div>
     <div class="trust-divider"></div>
@@ -743,7 +727,7 @@
 ════════════════════════════════════════ -->
 <section id="why">
   <div class="section-inner">
-    <div class="why-grid">
+    <div class="why-grid" style="grid-template-columns:1fr;max-width:700px;">
 
       <div>
         <div class="section-eyebrow">Why Choose Us</div>
@@ -788,29 +772,6 @@
         </div>
       </div>
 
-      <div class="testimonials">
-        <div class="testimonial">
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-text">"NorthStar installed our Wolf range and coordinated the gas
-          line perfectly. Everything was done cleanly, on time, and they walked us through the
-          whole setup. Absolutely the best service I've seen in a home."</p>
-          <div class="testimonial-author">— Sarah K., Minneapolis</div>
-        </div>
-        <div class="testimonial">
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-text">"We manage 12 rental units and NorthStar handles all our
-          appliance replacements. They show up, get it done right, and send us documentation
-          every time. It's one less thing I have to worry about."</p>
-          <div class="testimonial-author">— Property Manager, St. Paul</div>
-        </div>
-        <div class="testimonial">
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-text">"Very professional. The technician knew exactly what he was
-          doing with our built-in refrigerator. No drama, no damage, and the kitchen looks
-          exactly how we wanted."</p>
-          <div class="testimonial-author">— Michael T., Edina</div>
-        </div>
-      </div>
 
     </div>
   </div>
@@ -924,119 +885,10 @@
         </div>
       </div>
 
-      <div class="booking-form">
-        <div class="form-title">Request an Appointment</div>
-        <div class="form-subtitle">We'll confirm your time within 1 business day.</div>
-
-        <form id="bookingForm" onsubmit="handleSubmit(event)" action="https://formspree.io/f/mbdqjpwq" method="POST">
-          <div class="form-row">
-            <div class="form-group">
-              <label for="firstName">First Name</label>
-              <input type="text" id="firstName" name="firstName" placeholder="Jane" required>
-            </div>
-            <div class="form-group">
-              <label for="lastName">Last Name</label>
-              <input type="text" id="lastName" name="lastName" placeholder="Smith" required>
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="phone">Phone Number</label>
-              <input type="tel" id="phone" name="phone" placeholder="(612) 555-0100" required>
-            </div>
-            <div class="form-group">
-              <label for="email">Email Address</label>
-              <input type="email" id="email" name="email" placeholder="jane@email.com" required>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="address">Service Address</label>
-            <input type="text" id="address" name="address" placeholder="123 Main St, Minneapolis, MN 55401" required>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="service">Service Type</label>
-              <select id="service" name="service" required>
-                <option value="" disabled selected>Select an appliance...</option>
-                <option>Refrigerator Installation</option>
-                <option>Dishwasher Installation</option>
-                <option>Gas Range / Oven</option>
-                <option>Electric Range / Oven</option>
-                <option>Washer Installation</option>
-                <option>Dryer Installation</option>
-                <option>Washer + Dryer (Both)</option>
-                <option>Microwave (Over-the-Range)</option>
-                <option>Garbage Disposal</option>
-                <option>Cooktop Installation</option>
-                <option>Wall Oven Installation</option>
-                <option>Built-In / Luxury Appliance</option>
-                <option>Multiple Appliances</option>
-                <option>Other / Not Sure</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="tier">Service Tier</label>
-              <select id="tier" name="tier">
-                <option value="" disabled selected>Select tier...</option>
-                <option>Standard Install</option>
-                <option>NorthStar Elite (complex/built-in/gas)</option>
-                <option>Not sure — need guidance</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="date">Preferred Date</label>
-              <input type="date" id="date" name="preferredDate">
-            </div>
-            <div class="form-group">
-              <label for="time">Preferred Time</label>
-              <select id="time" name="preferredTime">
-                <option value="" disabled selected>Select window...</option>
-                <option>Morning (8 AM – 12 PM)</option>
-                <option>Afternoon (12 PM – 4 PM)</option>
-                <option>Late Afternoon (4 PM – 6 PM)</option>
-                <option>Flexible</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="addons">Add-On Services (Optional)</label>
-            <select id="addons" name="addons">
-              <option value="">None needed</option>
-              <option>Haul-Away &amp; Disposal of Old Appliance</option>
-              <option>Water Line Installation</option>
-              <option>Gas Line Connection</option>
-              <option>Dryer Venting / Duct Work</option>
-              <option>90-Day Extended Warranty</option>
-              <option>Multiple Add-Ons — Will Discuss at Booking</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="notes">Additional Notes</label>
-            <textarea id="notes" name="notes" placeholder="Tell us anything helpful — appliance brand, model, unusual access, existing utility concerns, etc."></textarea>
-          </div>
-
-          <button type="submit" class="form-submit">Request My Appointment →</button>
-          <p class="form-note">
-            By submitting this form, you agree to our
-            <a href="#" style="color:var(--gold-dark)">Service Agreement</a> terms.
-            A $75 trip fee applies if installation cannot proceed at your scheduled time.
-          </p>
-        </form>
-
-        <div class="form-success" id="formSuccess">
-          <div class="success-icon">⭐</div>
-          <h3>Request Received!</h3>
-          <p>Thank you — a NorthStar team member will confirm your appointment within one business day.
-          If you have an urgent need, call us at <strong>(763) 230-6570</strong>.</p>
-        </div>
+      <div class="booking-form" style="padding:0;background:transparent;box-shadow:none;">
+        <link rel="stylesheet" href="https://d3ey4dbjkt2f6s.cloudfront.net/assets/external/work_request_embed.css" media="screen" />
+        <div id="95362600-6c68-4e6a-bfa6-03087fb4719f-4701414"></div>
+        <script src="https://d3ey4dbjkt2f6s.cloudfront.net/assets/static_link/work_request_embed_snippet.js" clienthub_id="95362600-6c68-4e6a-bfa6-03087fb4719f-4701414" form_url="https://clienthub.getjobber.com/client_hubs/95362600-6c68-4e6a-bfa6-03087fb4719f/public/work_request/embedded_work_request_form?form_id=4701414"></script>
       </div>
 
     </div>
